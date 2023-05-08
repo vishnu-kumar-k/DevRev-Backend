@@ -17,7 +17,7 @@ const UserLogin = (req, res) => {
               const token = await jwt.sign(
                 { id: result[0].userId },
                 process.env.jwtToken,
-                { expiresIn: "10d" }
+                { expiresIn: "1d" }
               );
               res.json({ jwt: token, name: result[0].name, status: true });
             }

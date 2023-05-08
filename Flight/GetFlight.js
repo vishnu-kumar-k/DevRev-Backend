@@ -10,7 +10,7 @@ const GetFlight=(req,res)=>
         destinationLocation.length ? `AND destinationLocation='${destinationLocation}'` : ''
     } ${
         sourceLocation.length ? `AND sourceLocation='${sourceLocation}'` : ''
-    }
+    } order by departureDatetime
     `
     try{
         con.query(q,(err,result)=>

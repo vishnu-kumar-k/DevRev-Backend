@@ -28,7 +28,7 @@ const UserSignup =async (req, res) => {
                     res.json({err})
                 else
                 {
-                  const token=jwt.sign({id:result.insertId},process.env.jwtToken,{expiresIn:"10d"})
+                  const token=jwt.sign({id:result.insertId},process.env.jwtToken,{expiresIn:"1d"})
                   res.json({jwt:token,name,status:true})
                 }
                        

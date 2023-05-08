@@ -10,7 +10,6 @@ const Booking=async(req,res)=>
     const {token,flightId,currentDate}=req.body;
     try{
     var decode=await jwt.verify(token,process.env.jwtToken)
-    console.log(decode.id);
     var v=[[decode.id,flightId,currentDate]]
     
     con.query(`insert into bookingDetails(userId,flightId,bookingDate) values ?`,[v],(err,result)=>
