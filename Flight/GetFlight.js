@@ -5,7 +5,7 @@ const GetFlight=(req,res)=>
     const{destinationLocation,sourceLocation,date}=req.body;
     
     const q=`SELECT * FROM flightDetails WHERE ${
-        date ? `departureDatetime='${date}'` : 'departureDatetime >= NOW()'
+        date ? `departureDatetime='${date}'` : 'departureDatetime >= CURDATE()'
     } AND seatCount > 0 AND status=1 ${
         destinationLocation.length ? `AND destinationLocation='${destinationLocation}'` : ''
     } ${
